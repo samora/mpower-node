@@ -24,4 +24,19 @@ describe('CheckoutInvoice', function () {
       });
     });
   });
+
+  describe('#confirm', function () {
+    it('should confirm completed token', function (done){
+      this.timeout(10000);
+      var setup = new Setup({mode: 'test'});
+      var store = new Store({name: 'Awesome Store'});
+      var invoice = new CheckoutInvoice;
+      invoice.init(setup, store);
+      invoice.confirm('test_a6fef1449a', function (err, invoice) {
+        assert.ok(invoice.customer);
+        assert.ok(invoice.receiptURL);
+        done();
+      });
+    });
+  });
 });

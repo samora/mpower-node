@@ -163,6 +163,10 @@ invoice.init(setup, store);
 invoice.confirm(token, function (err, invoice){
   invoice.status; //  completed, pending, canceled or fail
   invoice.responseText;
+  
+  // available if status == 'completed'
+  invoice.customer; // {name: 'Samora Dake', phone: '0281234567', email: 'samoradake@gmail.com'}
+  invoice.receiptURL; // 'https://app.mpowerpayments.com/sandbox-checkout/receipt/pdf/test_a6fef1449a.pdf'
 });
 ```
 
