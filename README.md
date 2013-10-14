@@ -65,7 +65,7 @@ invoice.description = 'Apple product'
 ## Setting Total Amount Chargeable
 
 ```javascript
-invoice.totalAmount = 50;
+invoice.totalAmount = 500;
 ```
 
 ## Redirecting to MPower Checkout
