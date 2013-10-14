@@ -179,7 +179,7 @@ directPay.creditAccount('customer', 50, function (err, directPay){
 ```
 
 ## Running Tests
-To run tests setup your API configuration environment variables. 
+To run tests just setup your API configuration environment variables. Then run:
 
 ```javascript
 mocha test
