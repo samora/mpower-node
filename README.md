@@ -61,7 +61,7 @@ invoice.addItem('iPhone 4', 1, 500, 500); // name, quantity, unit price, total p
 invoice.description = 'Apple product'
 ```
 
-## Setting Total Amount chargeable
+## Setting Total Amount Chargeable
 
 ```javascript
 invoice.totalAmount = 50;
@@ -178,7 +178,7 @@ directPay.creditAccount('customer', 50, function (err, directPay){
 });
 ```
 
-## Running Tests
+# Running Tests
 To run tests just setup your API configuration environment variables. Then run:
 
 ```javascript
@@ -186,4 +186,4 @@ mocha test
 ```
 
 # TODO
-Add DirectCard functionality
+Add DirectCard functionality.
