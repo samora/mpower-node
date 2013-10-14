@@ -24,7 +24,8 @@ var setup = new mpower.Setup({
 });
 ```
 
-It might usually be suitable to put your API configuration in environment variables. In which case you can initialize `mpower.Setup` without passing configuration parameters.
+It might usually be suitable to put your API configuration in environment variables. In which case you can initialize `mpower.Setup` without passing configuration parameters. 
+The library will automatically detect the environment variables to use.
 Keys for your environment variables: `MP_MASTER_KEY`, `MP_PRIVATE_KEY`, `MP_PUBLIC_KEY`,  `MP_TOKEN`
 
 
@@ -183,7 +184,7 @@ directPay.creditAccount('customer', 50, function (err, directPay){
 ```
 
 # Running Tests
-To run tests just setup your API configuration environment variables. Then run:
+To run tests just setup the API configuration environment variables. Then run:
 
 ```javascript
 mocha test
