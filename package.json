@@ -2,7 +2,7 @@
   "name": "mpower-node",
   "version": "0.0.0",
   "description": "MPower Payments Node Client Library",
-  "main": "lib/mpower.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha test"
   },
@@ -21,6 +21,7 @@
     "url": "https://github.com/samora/mpower-node/issues"
   },
   "dependencies": {
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "lodash": "~2.2.1"
   }
 }
