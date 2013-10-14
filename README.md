@@ -85,7 +85,7 @@ After setting total amount and adding items to your invoice get the MPower custo
 
 ```javascript
 invoice.create('samora', function(err, invoice){
-  invoice.oprToken; // You need to pass the OPR Token on the 2nd step
+  invoice.oprToken; // You need to pass the OPR Token on Step 2
   invoice.token; // invoice token
   invoice.responseText;
 });
