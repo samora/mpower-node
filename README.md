@@ -24,9 +24,9 @@ var setup = new mpower.Setup({
 });
 ```
 
-It might usually be suitable to put your API configuration in environment variables. In which case you can initialize `mpower.Setup` without passing configuration parameters. 
-The library will automatically detect the environment variables to use.
-Keys for your environment variables: `MP_MASTER_KEY`, `MP_PRIVATE_KEY`, `MP_PUBLIC_KEY`,  `MP_TOKEN`
+It might usually be suitable to put your API configuration in environment variables. In that case you can initialize `mpower.Setup` without passing configuration parameters. 
+The library will automatically detect the environment variables and use them.
+Auto-detected environment variables: `MP_MASTER_KEY`, `MP_PRIVATE_KEY`, `MP_PUBLIC_KEY`,  `MP_TOKEN`
 
 
 ## Checkout Store configuration
