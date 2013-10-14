@@ -1,7 +1,7 @@
 {
-  "name": "mpower-node",
+  "name": "mpower",
   "version": "0.0.0",
-  "description": "MPower Payments Node Client Library",
+  "description": "MPower Payments Node Library",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test"

@@ -26,6 +26,31 @@ describe('Invoice', function (){
       done();
     });
   });
+
+  describe('#addTax()', function () {
+    it('should add tax with valid parameters', function (done){
+      var setup = new Setup({made: 'test'});
+      var store = new Store({name: 'Awesome Store', returnURL: 'http://mysite.com/callback'});
+      var invoice = new Invoice();
+      invoice.init(setup, store);
+      invoice.addTax('VAT', 5);
+      assert.strictEqual(invoice.taxes.tax_1.name, 'VAT');
+      assert.strictEqual(invoice.taxes.tax_1.amount, 5);
+      done();
+    });
+  });
+
+  describe('#addCustomData', function () {
+    it('should add custom data', function (done){
+      var setup = new Setup({made: 'test'});
+      var store = new Store({name: 'Awesome Store'});
+      var invoice = new Invoice();
+      invoice.init(setup, store);
+      invoice.addCustomData('size', 'large');
+      assert.strictEqual(invoice.customData.size, 'large');
+      done();
+    });
+  });
   
   describe('#generateRequestBody()', function () {
     it('should fail with invalid parameters', function (done) {
@@ -39,15 +64,21 @@ describe('Invoice', function (){
       assert.throws(function () {
         invoice.generateRequestBody();
       });
-      invoice.setTotalAmount(50);
+      invoice.totalAmount = 50;
       assert.doesNotThrow(function () {
         invoice.generateRequestBody();
       });
+      invoice.addTax('VAT', 7);
+      invoice.addCustomData('size', 'large');
       var body = invoice.generateRequestBody();
       assert.strictEqual(body.invoice.total_amount, 50);
       assert.strictEqual(body.store.name, 'Awesome Store');
-      assert.strictEqual(body.actions.return_url, 'http://mysite.com/callback')
+      assert.strictEqual(body.actions.return_url, 'http://mysite.com/callback');
+      assert.strictEqual(body.invoice.taxes.tax_1.name, 'VAT');
+      assert.strictEqual(body.invoice.taxes.tax_1.amount, 7);
+      assert.strictEqual(body.custom_data.size, 'large');
       done();
     });
   });
+
 });

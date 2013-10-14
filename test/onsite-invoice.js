@@ -3,23 +3,24 @@ var assert = require('assert')
   , mpower = require('../lib')
   , Setup = mpower.Setup
   , Store = mpower.Store
-  , CheckoutInvoice = mpower.CheckoutInvoice
+  , OnsiteInvoice = mpower.OnsiteInvoice
   ;
 
-describe('CheckoutInvoice', function () {
+describe('OnsiteInvoice', function () {
   describe('#create()', function () {
-    it('should work with valid initialization and total amount', function (done){
+    it('should create onsite payment request and charge', function (done){
       this.timeout(15000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new CheckoutInvoice;
+      var invoice = new OnsiteInvoice;
       invoice.init(setup, store);
-      invoice.totalAmount = 70;
+      invoice.totalAmount = 80;
 
-      invoice.create(function (err, invoice){
-        assert.ok(!(err instanceof Error));
-        assert.ok(invoice.url);
+      invoice.create('samora', function (err, invoice){
+        assert.ok(!err);
+        assert.ok(invoice.oprToken);
         assert.ok(invoice.token);
+        assert.ok(invoice.responseText);
         done();
       });
     });
