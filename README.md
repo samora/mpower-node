@@ -47,7 +47,7 @@ var invoice = new mpower.CheckoutInvoice;
 invoice.init(setup, store);
 ```
 
-## Initialize an Onsite Invoice
+## Initialize Onsite Invoice
 
 ```javascript
 var invoice = new mpower.OnsiteInvoice;
@@ -84,7 +84,7 @@ After setting total amount and adding items to your invoice get the MPower custo
 
 ```javascript
 invoice.create('samora', function(err, invoice){
-  invoice.oprToken; // You need to pass in the OPR Token on the 2nd step
+  invoice.oprToken; // You need to pass the OPR Token on the 2nd step
   invoice.token; // invoice token
   invoice.responseText;
 });
@@ -176,4 +176,11 @@ directPay.creditAccount('customer', 50, function (err, directPay){
   directPay.responseText;
   directPay.transactionID;
 });
+```
+
+## Running Tests
+To run tests setup your API configuration environment variables. 
+
+```javascript
+mocha test
 ```
