@@ -29,7 +29,7 @@ The library will automatically detect the environment variables and use them.
 Auto-detected environment variables: `MP_MASTER_KEY`, `MP_PRIVATE_KEY`, `MP_PUBLIC_KEY`,  `MP_TOKEN`
 
 
-## Checkout Store configuration
+## Checkout Store Configuration
 
 ```javascript
 var store = new mpower.Store({
@@ -80,7 +80,7 @@ invoice.create(function (err, invoice){
 });
 ```
 
-## (OPR) Onsite Payment Request: Step 1 - Token request
+## Onsite Payment Request (OPR): Step 1 - Token request
 After setting total amount and adding items to your invoice get the MPower customer's username or phone number and start an OPR request.
 
 ```javascript
@@ -91,7 +91,7 @@ invoice.create('samora', function(err, invoice){
 });
 ```
 
-## (OPR) Onsite Payment Request: Step 2 - Charge
+## Onsite Payment Request(OPR): Step 2 - Charge
 To successfully complete an OPR charge, you need both your OPR Token & the Confirmation code sent to the customer. After a successfull charge you can programatically access the receipt url, customer information and more.
 
 ```javascript
