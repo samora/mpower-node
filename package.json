@@ -1,0 +1,27 @@
+{
+  "name": "mpower",
+  "version": "0.1.4",
+  "description": "MPower Payments Node Library",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samora/mpower-node.git"
+  },
+  "keywords": [
+    "mpower",
+    "mpowerpayments",
+    "payment"
+  ],
+  "author": "Samora Dake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samora/mpower-node/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0",
+    "lodash": "~2.2.1"
+  }
+}
