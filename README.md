@@ -1,6 +1,6 @@
 # mpower-node
 
-Unofficial MPower Payments Node library.
+Unofficial [MPower Payments (mpowerpayments.com)](http://mpowerpayments.com) [Node.JS](http://nodejs.org) library.
 
 Built on the MPower Payments HTTP API (beta).
 
