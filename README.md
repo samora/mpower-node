@@ -176,7 +176,7 @@ You can pay any MPower account directly via your third party apps. This is parti
 
 ```javascript
 var directPay = new mpower.DirectPay(setup);
-directPay.creditAccount('customer', 50, function (err, directPay){
+directPay.creditAccount('samora', 50, function (err, directPay){
   directPay.description;
   directPay.responseText;
   directPay.transactionID;
