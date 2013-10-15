@@ -1,6 +1,6 @@
 {
   "name": "mpower",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "MPower Payments Node Library",
   "main": "lib/index.js",
   "scripts": {
