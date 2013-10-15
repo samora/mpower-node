@@ -91,7 +91,7 @@ invoice.create('samora', function(err, invoice){
 });
 ```
 
-## Onsite Payment Request(OPR): Step 2 - Charge
+## Onsite Payment Request (OPR): Step 2 - Charge
 To successfully complete an OPR charge, you need both your OPR Token & the Confirmation code sent to the customer. After a successfull charge you can programatically access the receipt url, customer information and more.
 
 ```javascript
