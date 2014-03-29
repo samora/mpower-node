@@ -1,5 +1,7 @@
 # mpower-node
 
+[![Build Status](https://travis-ci.org/samora/mpower-node.svg?branch=master)](https://travis-ci.org/samora/mpower-node)
+
 The unofficial [Node.JS](http://nodejs.org) library for [MPower Payments (mpowerpayments.com)](http://mpowerpayments.com).
 
 Built on the MPower Payments HTTP API (beta).
