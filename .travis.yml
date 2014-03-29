@@ -4,3 +4,4 @@ node_js:
   - "0.8"
 before_install:
   - "npm install -g mocha"
+env: MP_MASTER_KEY=6f8db867-a144-409a-bec9-f0b00c766bee MP_PRIVATE_KEY=test_private_SOCDeCOeK0ler1yZtMI3bOsmFmQ MP_PUBLIC_KEY=test_public_Ocdq5BzaCObarZHWAko98ELqnkE MP_TOKEN=848df21a4e5e7b324a40
