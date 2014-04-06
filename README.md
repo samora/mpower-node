@@ -185,12 +185,17 @@ directPay.creditAccount('samora', 50, function (err, directPay){
 });
 ```
 
-# Running Tests
+## TODO
+Add DirectCard functionality.
+
+## Running Tests
 To run tests just setup the API configuration environment variables. An internet connection is required for some of the tests to pass.
 
-```javascript
-mocha test
 ```
+npm install -g mocha
+```
+Then
+`npm test` or `mocha`
 
-# TODO
-Add DirectCard functionality.
+## License
+MIT
