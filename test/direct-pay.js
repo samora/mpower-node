@@ -17,7 +17,8 @@ describe('DirectPay', function () {
       this.timeout(10000);
       var setup = new Setup({mode: 'test'});
       var directPay = new DirectPay(setup);
-      directPay.creditAccount('samora', 50, function (err, directPay){
+      directPay.creditAccount('samora', 50)
+      .then(function (){
         assert.ok(directPay.description);
         assert.ok(directPay.transactionID);
         assert.ok(directPay.responseText);
