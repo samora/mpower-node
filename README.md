@@ -6,12 +6,16 @@ The unofficial [Node.JS](http://nodejs.org) library for [MPower Payments (mpower
 
 Built on the MPower Payments HTTP API (beta).
 
-**NOTE:** This is documentation for the current `0.2.x` release. `0.1.x` documentation is available [here](README-0.1.x.md). `0.2.x` introduced breaking changes incompatible with `0.1.x`.
+## Notice
+
+* This is documentation for the current `0.2.x` release. `0.1.x` documentation is available [here](README-0.1.x.md).
+* `0.2.x` introduced breaking changes incompatible with `0.1.x`.
+* `0.2.x` is incompatible with Node.js `0.8.x` and below.
 
 
 ## Changelog
 
-### v0.2.0
+#### v0.2.0
 * Updated to use [promises](https://github.com/petkaantonov/bluebird).
 * Removed invoice initialization via `init`. Invoices are now initalized directly on instantiation.
 
