@@ -17,8 +17,8 @@ describe('OnsiteInvoice', function () {
       invoice.init(setup, store);
       invoice.totalAmount = 80;
 
-      invoice.create('samora', function (err, invoice){
-        assert.ok(!err);
+      invoice.create('samora')
+      .then(function (){
         assert.ok(invoice.oprToken);
         assert.ok(invoice.token);
         assert.ok(invoice.responseText);
