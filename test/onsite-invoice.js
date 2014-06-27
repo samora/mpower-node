@@ -13,8 +13,7 @@ describe('OnsiteInvoice', function () {
       this.timeout(15000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new OnsiteInvoice;
-      invoice.init(setup, store);
+      var invoice = new OnsiteInvoice(setup, store);
       invoice.totalAmount = 80;
 
       invoice.create('samora')

@@ -12,8 +12,7 @@ describe('CheckoutInvoice', function () {
       this.timeout(15000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new CheckoutInvoice;
-      invoice.init(setup, store);
+      var invoice = new CheckoutInvoice(setup, store);
       invoice.totalAmount = 70;
 
       invoice.create()
@@ -30,8 +29,7 @@ describe('CheckoutInvoice', function () {
       this.timeout(10000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new CheckoutInvoice;
-      invoice.init(setup, store);
+      var invoice = new CheckoutInvoice(setup, store);
       invoice.confirm('test_a6fef1449a')
         .then(function () {
           assert.ok(invoice.customer);
