@@ -1,4 +1,5 @@
 var assert = require('assert')
+  , Promise = require('bluebird')
   , Invoice = require('../lib/invoice')
   , mpower = require('../lib')
   , Setup = mpower.Setup
@@ -12,12 +13,11 @@ describe('OnsiteInvoice', function () {
       this.timeout(15000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new OnsiteInvoice;
-      invoice.init(setup, store);
+      var invoice = new OnsiteInvoice(setup, store);
       invoice.totalAmount = 80;
 
-      invoice.create('samora', function (err, invoice){
-        assert.ok(!err);
+      invoice.create('samora')
+      .then(function (){
         assert.ok(invoice.oprToken);
         assert.ok(invoice.token);
         assert.ok(invoice.responseText);

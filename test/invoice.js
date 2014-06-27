@@ -11,8 +11,7 @@ describe('Invoice', function (){
     it('should add item to invoice', function (done){
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new Invoice;
-      invoice.init(setup, store);
+      var invoice = new Invoice(setup, store);
       invoice.addItem('iPhone', 1, 1000, 1000, 'apple gadget');
       assert.strictEqual(invoice.items.item_1.name, 'iPhone');
       assert.strictEqual(invoice.items.item_1.quantity, 1);
@@ -31,8 +30,7 @@ describe('Invoice', function (){
     it('should add tax with valid parameters', function (done){
       var setup = new Setup({made: 'test'});
       var store = new Store({name: 'Awesome Store', returnURL: 'http://mysite.com/callback'});
-      var invoice = new Invoice();
-      invoice.init(setup, store);
+      var invoice = new Invoice(setup, store);
       invoice.addTax('VAT', 5);
       assert.strictEqual(invoice.taxes.tax_1.name, 'VAT');
       assert.strictEqual(invoice.taxes.tax_1.amount, 5);
@@ -44,8 +42,7 @@ describe('Invoice', function (){
     it('should add custom data', function (done){
       var setup = new Setup({made: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new Invoice();
-      invoice.init(setup, store);
+      var invoice = new Invoice(setup, store);
       invoice.addCustomData('size', 'large');
       assert.strictEqual(invoice.customData.size, 'large');
       done();
@@ -56,11 +53,7 @@ describe('Invoice', function (){
     it('should fail with invalid parameters', function (done) {
       var setup = new Setup({made: 'test'});
       var store = new Store({name: 'Awesome Store', returnURL: 'http://mysite.com/callback'});
-      var invoice = new Invoice();
-      assert.throws(function () {
-        invoice.generateRequestBody();
-      });
-      invoice.init(setup, store);
+      var invoice = new Invoice(setup, store);
       assert.throws(function () {
         invoice.generateRequestBody();
       });

@@ -12,16 +12,15 @@ describe('CheckoutInvoice', function () {
       this.timeout(15000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new CheckoutInvoice;
-      invoice.init(setup, store);
+      var invoice = new CheckoutInvoice(setup, store);
       invoice.totalAmount = 70;
 
-      invoice.create(function (err, invoice){
-        assert.ok(!(err instanceof Error));
-        assert.ok(invoice.url);
-        assert.ok(invoice.token);
-        done();
-      });
+      invoice.create()
+        .then(function () {
+          assert.ok(invoice.url);
+          assert.ok(invoice.token);
+          done();
+        });
     });
   });
 
@@ -30,13 +29,13 @@ describe('CheckoutInvoice', function () {
       this.timeout(10000);
       var setup = new Setup({mode: 'test'});
       var store = new Store({name: 'Awesome Store'});
-      var invoice = new CheckoutInvoice;
-      invoice.init(setup, store);
-      invoice.confirm('test_a6fef1449a', function (err, invoice) {
-        assert.ok(invoice.customer);
-        assert.ok(invoice.receiptURL);
-        done();
-      });
+      var invoice = new CheckoutInvoice(setup, store);
+      invoice.confirm('test_a6fef1449a')
+        .then(function () {
+          assert.ok(invoice.customer);
+          assert.ok(invoice.receiptURL);
+          done();
+        })
     });
   });
 });

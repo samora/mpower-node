@@ -1,4 +1,4 @@
-# MPower
+# mpower-node
 
 [![Build Status](https://travis-ci.org/samora/mpower-node.svg?branch=master)](https://travis-ci.org/samora/mpower-node)
 
@@ -6,22 +6,11 @@ The unofficial [Node.JS](http://nodejs.org) library for [MPower Payments (mpower
 
 Built on the MPower Payments HTTP API (beta).
 
-**NOTE:** This is documentation for the current `0.2.x` release. `0.1.x` documentation is available [here](README-0.1.x.md). `0.2.x` introduced breaking changes incompatible with `0.1.x`.
-
-
-## Changelog
-
-### v0.2.0
-* Updated to use [promises](https://github.com/petkaantonov/bluebird).
-* Removed invoice initialization via `init`. Invoices are now initalized directly on instantiation.
-
-
 ## Installation
 
-```bash
-$ npm install --save mpower
+```javascript
+npm install mpower
 ```
-
 
 ## API configuration
 
@@ -57,13 +46,15 @@ var store = new mpower.Store({
 ## Initialize Checkout Invoice
 
 ```javascript
-var invoice = new mpower.CheckoutInvoice(setup, store);
+var invoice = new mpower.CheckoutInvoice;
+invoice.init(setup, store);
 ```
 
 ## Initialize Onsite Invoice
 
 ```javascript
-var invoice = new mpower.OnsiteInvoice(setup, store);
+var invoice = new mpower.OnsiteInvoice;
+invoice.init(setup, store);
 ```
 
 ## Add Invoice Items & Description
@@ -83,47 +74,35 @@ invoice.totalAmount = 500;
 After setting total amount and adding items to your invoice you can create a checkout and redirect the customer. It takes a callback which gets passed the updated invoice object containing the url.
 
 ```javascript
-invoice.create()
-  .then(function (){
-    invoice.status;
-    invoice.token; // invoice token
-    invoice.responseText;
-    invoice.url; // MPower redirect checkout url
-  })
-  .catch(function (e) {
-    console.log(e);
-  });
+invoice.create(function (err, invoice){
+  invoice.status;
+  invoice.token; // invoice token
+  invoice.responseText;
+  invoice.url; // MPower redirect checkout url
+});
 ```
 
 ## Onsite Payment Request (OPR): Step 1 - Token request
 After setting total amount and adding items to your invoice get the MPower customer's username or phone number and start an OPR request.
 
 ```javascript
-invoice.create('samora')
-  .then(function(){
-    invoice.oprToken; // You need to pass the OPR Token on Step 2
-    invoice.token; // invoice token
-    invoice.responseText;
-  })
-  .catch(function (e) {
-    console.log(e);
-  });
+invoice.create('samora', function(err, invoice){
+  invoice.oprToken; // You need to pass the OPR Token on Step 2
+  invoice.token; // invoice token
+  invoice.responseText;
+});
 ```
 
 ## Onsite Payment Request (OPR): Step 2 - Charge
 To successfully complete an OPR charge, you need both your OPR Token & the Confirmation code sent to the customer. After a successfull charge you can programatically access the receipt url, customer information and more.
 
 ```javascript
-invoice.charge('oprToken', '0000')
-  .then(function (){
-    invoice.status;
-    invoice.responseText;
-    invoice.receiptURL;
-    invoice.customer; // {name: 'Samora Dake', phone: '0204939902', email: 'samoradake@gmail.com'}
-  })
-  .catch(function (e) {
-    console.log(e);
-  });
+invoice.charge('oprToken', '0000', function (err, invoice){
+  invoice.status;
+  invoice.responseText;
+  invoice.receiptURL;
+  invoice.customer; // {name: 'Samora Dake', phone: '0204939902', email: 'samoradake@gmail.com'}
+});
 ```
 
 ## Extra API methods
@@ -182,37 +161,29 @@ The API allows you to check on the status of any checkout using the checkout tok
 ```javascript
 var token = 'aodaff0023';
 
-var invoice = new mpower.CheckoutInvoice(setup, store);
-invoice.confirm(token)
-  .then(function (){
-    invoice.status; //  completed, pending, canceled or fail
-    invoice.responseText;
-    
-    // available if status == 'completed'
-    invoice.customer; // {name: 'Samora Dake', phone: '0281234567', email: 'samoradake@gmail.com'}
-    invoice.receiptURL; // 'https://app.mpowerpayments.com/sandbox-checkout/receipt/pdf/test_a6fef1449a.pdf'
-  })
-  .catch(function (e) {
-    console.log(e);
-  });
+var invoice = new mpower.CheckoutInvoice;
+invoice.init(setup, store);
+invoice.confirm(token, function (err, invoice){
+  invoice.status; //  completed, pending, canceled or fail
+  invoice.responseText;
+  
+  // available if status == 'completed'
+  invoice.customer; // {name: 'Samora Dake', phone: '0281234567', email: 'samoradake@gmail.com'}
+  invoice.receiptURL; // 'https://app.mpowerpayments.com/sandbox-checkout/receipt/pdf/test_a6fef1449a.pdf'
+});
 ```
 
-### DirectPay
+## DirectPay
 You can pay any MPower account directly via your third party apps. This is particularly excellent for implementing your own Adaptive payment solutions on top of MPower.
 
 ```javascript
 var directPay = new mpower.DirectPay(setup);
-directPay.creditAccount('samora', 50)
-  .then(function (){
-    directPay.description;
-    directPay.responseText;
-    directPay.transactionID;
-  })
-  .catch(function (e) {
-    console.log(e);
-  });
+directPay.creditAccount('samora', 50, function (err, directPay){
+  directPay.description;
+  directPay.responseText;
+  directPay.transactionID;
+});
 ```
-
 
 ## TODO
 Add DirectCard functionality.
