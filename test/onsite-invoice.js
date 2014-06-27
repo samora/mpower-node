@@ -1,4 +1,5 @@
 var assert = require('assert')
+  , Promise = require('bluebird')
   , Invoice = require('../lib/invoice')
   , mpower = require('../lib')
   , Setup = mpower.Setup
