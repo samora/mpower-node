@@ -14,6 +14,9 @@ Built on the MPower Payments HTTP API (beta).
 
 
 ## Changelog
+#### v0.2.2
+* Switched HTTP library to [superagent](https://github.com/visionmedia/superagent)
+
 #### v0.2.1
 * Removed unnecessary MP-Public-Key header.
 
