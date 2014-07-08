@@ -14,6 +14,8 @@ Built on the MPower Payments HTTP API (beta).
 
 
 ## Changelog
+#### v0.2.1
+* Removed unnecessary MP-Public-Key header.
 
 #### v0.2.0
 * Updated to use [promises](https://github.com/petkaantonov/bluebird).
