@@ -1,6 +1,6 @@
 {
   "name": "mpower",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MPower Payments Node.JS Library",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "bluebird": "^2.1.3",
-    "request": "~2.27.0"
+    "superagent": "^0.18.1"
   }
 }
