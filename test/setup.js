@@ -7,7 +7,7 @@ describe('Setup', function () {
     var setup = new Setup();
     assert.strictEqual(setup.config['MP-Master-Key'], process.env.MP_MASTER_KEY);
     assert.strictEqual(setup.config['MP-Private-Key'], process.env.MP_PRIVATE_KEY);
-    assert.strictEqual(setup.config['MP-Public-Key'], process.env.MP_PUBLIC_KEY);
+    // assert.strictEqual(setup.config['MP-Public-Key'], process.env.MP_PUBLIC_KEY);
     assert.strictEqual(setup.config['MP-Token'], process.env.MP_TOKEN);
     done();
   });
@@ -21,7 +21,7 @@ describe('Setup', function () {
     });
     assert.strictEqual(setup.config['MP-Master-Key'], 'master');
     assert.strictEqual(setup.config['MP-Private-Key'], 'private');
-    assert.strictEqual(setup.config['MP-Public-Key'], 'public');
+    // assert.strictEqual(setup.config['MP-Public-Key'], 'public');
     assert.strictEqual(setup.config['MP-Token'], 'token');
     done();
   });
