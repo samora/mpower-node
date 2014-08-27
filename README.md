@@ -1,5 +1,6 @@
 # MPower
 
+[![NPM version](https://badge.fury.io/js/mpower.svg)](http://badge.fury.io/js/mpower)
 [![Build Status](https://travis-ci.org/samora/mpower-node.svg?branch=master)](https://travis-ci.org/samora/mpower-node)
 
 The unofficial [Node.JS](http://nodejs.org) library for [MPower Payments (mpowerpayments.com)](http://mpowerpayments.com).
@@ -11,18 +12,6 @@ Built on the MPower Payments HTTP API (beta).
 * This is documentation for the current `0.2.x` release. `0.1.x` documentation is available [here](README-0.1.x.md).
 * `0.2.x` introduced breaking changes incompatible with `0.1.x`.
 * `0.2.x` is incompatible with Node.js `0.8.x` and below.
-
-
-## Changelog
-#### v0.2.2
-* Switched HTTP library to [superagent](https://github.com/visionmedia/superagent)
-
-#### v0.2.1
-* Removed unnecessary MP-Public-Key header.
-
-#### v0.2.0
-* Updated to use [promises](https://github.com/petkaantonov/bluebird).
-* Removed invoice initialization via `init`. Invoices are now initalized directly on instantiation.
 
 
 ## Installation
