@@ -17,3 +17,4 @@ test/test-results.xml
 
 # Bower stuff.
 bower_components/
+dist/mpower-node.debug.js
